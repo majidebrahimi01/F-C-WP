@@ -113,6 +113,7 @@ $number-of-options: 5;
 
 body {
     background: $bg_color;
+    overflow-x: hidden;
 }
 
 
@@ -162,6 +163,10 @@ body {
     .nav-link {
         color: $white !important;
     }
+    .navbar-brand::before{
+        top: 0;
+        bottom: 0 !important;
+    }
 }
 
 .navbar {
@@ -185,7 +190,7 @@ body {
             right: 700px;
             top: -40px;
             bottom: -20px;
-            left: -100%;
+            left: -3%;
             z-index: -2;
             transition: 400ms all;
             -webkit-transition: 400ms all;
@@ -238,21 +243,19 @@ body {
 .bdt-timeline-container {
     display: flow-root;
     box-sizing: content-box;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    // padding-left: 15px;
-    // padding-right: 15px;
-    overflow: hidden;
+    width: 100%;
     // margin-top: 22px;
     .upk-salf-slider-wrapper {
         display: flex;
         flex-direction: row;
-        // background: darken($color: $primary, $amount: 30%);
-        // box-shadow: 0 5px 15px darken($color: $primary, $amount: 50%);
         height: 450px;
-        padding: 30px 0;
+        padding: 0 30px;
+        margin-bottom: 30px;
         position: relative;
+        .swiper-container{
+            width: 100%;
+            height: 500px;
+        }
         .upk-salf-item {
             position: relative;
             display: flex;
@@ -266,18 +269,18 @@ body {
                 }
             }
             .upk-salf-image-wrap {
-                height: 100%;
                 width: 100%;
+                height: 500px;
             }
             .upk-xanc-img {
                 display: block;
                 width: 100%;
-                height: 400px;
+                height: 500px;
                 object-fit: cover;
             }
             .upk-salf-content-wrap {
                 position: absolute;
-                left: 0;
+                right: 0;
                 bottom: 0;
                 top: unset;
                 max-width: 460px;
@@ -287,6 +290,7 @@ body {
                 transition: backdrop-filter 0.9s;
                 padding: 20px;
                 padding-left: 20px;
+                direction: rtl;
             }
             .upk-salf-title {
                 font-size: 23px;
@@ -322,6 +326,7 @@ body {
                 .link--arrowed {
                     display: inline-block;
                     .arrow-icon {
+                        margin-right: 5px;
                         position: relative;
                         top: 0;
                         -webkit-transition: -webkit-transform 0.3s ease;
@@ -1010,12 +1015,14 @@ form {
             .date_time {
                 color: rgba($white, .4);
                 font-size: 20px;
+                margin: 0;
             }
             .format {
                 color: rgba($white, .8);
                 font-size: 20px;
                 span {
                     color: rgba($white, .4);
+                    width: 100px;
                     font-size: 14px;
                     margin: 0 5px 10px;
                 }
@@ -1105,9 +1112,9 @@ form {
     .news_slider {
         width: 80%;
         position: relative;
-        max-width: 850px;
+        max-width: 1000px;
         margin: 20px auto;
-        background: $secondary;
+        background: $primary;
         box-shadow: 0px 14px 8px rgba($secondary, 0.2);
         padding: 25px;
         border-radius: 10px;
@@ -1133,6 +1140,7 @@ form {
             }
             &.swiper-slide-active {
                 .news_slider__img {
+                    box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: .6);
                     img {
                         opacity: 1;
                         transition-delay: .3s;
@@ -1235,22 +1243,6 @@ form {
             margin-bottom: 30px;
             line-height: 1.5em;
         }
-        // &__button {
-        //     display: inline-flex;
-        //     background-image: linear-gradient(147deg, #fe8a39 0%, #fd3838 74%);
-        //     padding: 15px 35px;
-        //     border-radius: 50px;
-        //     color: #fff;
-        //     box-shadow: 0px 14px 80px rgba(252, 56, 56, 0.4);
-        //     text-decoration: none;
-        //     font-weight: 500;
-        //     justify-content: center;
-        //     text-align: center;
-        //     letter-spacing: 1px;
-        //     @media screen and (max-width: 576px) {
-        //         width: 100%;
-        //     }
-        // }
         .swiper-container-horizontal>.swiper-pagination-bullets,
         .swiper-pagination-custom,
         .swiper-pagination-fraction {
@@ -1288,12 +1280,12 @@ form {
                 height: 11px;
                 display: block;
                 border-radius: 10px;
-                background: $primary;
+                background: $white;
                 opacity: 0.2;
                 transition: all .3s;
                 &-active {
                     opacity: 1;
-                    background: $primary;
+                    background: $white;
                     height: 30px;
                     box-shadow: 0px 0px 20px rgba($primary, 0.3);
                     @media screen and (max-width: 768px) {
@@ -1322,7 +1314,7 @@ form {
         color: $white;
     }
     .content-inner {
-        width: 230px;
+        width: 260px;
         color: $white;
         position: relative;
         transform-style: preserve-3d;
@@ -1825,6 +1817,158 @@ form {
         }
     }
 }
+
+
+
+/*===============================
+=       players list.html       =
+===============================*/
+ 
+.players{
+    .character-collection {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        .person {
+            width: auto;
+            height: 160px;
+            position: relative;
+            background-position: center -40px;
+            background-repeat: no-repeat;
+            background-size: 700%;
+            box-shadow: 2px 2px 10px #000;
+            pointer-events: none;
+            text-align: center;
+            background-size: cover;
+            background-position: center center;
+            background-color: $secondary;
+            margin: 40px;
+            &.one {background-image: url(../img/1.png);}     
+            &.two {background-image: url(../img/2.png);}
+            &.three {background-image: url(../img/3.png);}
+            // &.four {background-image: url(https://fadelun.github.io/hosted-assets/tekken-property/zafina.png);}
+            // &.five {background-image: url(../img/3.png);}
+            &.six {background-image: url(../img/6.png);}
+            &.seven {background-image: url(../img/7.png);}
+            &.eight {background-image: url(../img/8.png);}
+            &.nine {background-image: url(../img/9.png);}
+            &.ten {background-image: url(../img/10.png);}
+            &.eleven {background-image: url(../img/11.png);}
+            &.sixteen {background-image: url(../img/16.png);}
+            &.eightteen {background-image: url(../img/18.png);}
+            &.nineteen {background-image: url(../img/19.png);}
+            &.Twenty_one {background-image: url(../img/21.png);}
+            &.Twenty_three {background-image: url(../img/23.png);}
+            &.Twenty_five {background-image: url(../img/25.png);}
+            &.therty {background-image: url(../img/30.png);}
+            &.thirty_eight {background-image: url(../img/38.png);}
+            &.fourty_seven {background-image: url(../img/47.png);}
+            &.sixty_six {background-image: url(../img/66.png);}
+            &.seventy_two {background-image: url(../img/72.png);}
+            &.eighty {background-image: url(../img/80.png);}
+            &.ninety_nine {background-image: url(../img/99.png);}
+            &:hover {
+                background-image: none;
+                transition: height 0.3s;
+                box-shadow: 2px 2px 10px rgba($color: #000000, $alpha:.4);
+            }
+            img {width: 0;opacity: 0;}
+            p {
+                // display: none;
+                opacity: 0;
+                color: rgb(219, 219, 219);
+                font-weight: bold;
+                font-size: 1.2rem;
+                text-transform: capitalize;
+                text-shadow: 0px 2px 8px black;
+                z-index: 20;
+            }
+            .hover-person {
+                width: 100%;
+                height: 100%;
+                // opacity: 0.4;
+                position: absolute;
+                pointer-events: auto;
+                &:hover {filter: grayscale(0) opacity(0);}
+                &:hover ~ img {
+                    opacity: 1;
+                    display: block;
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0%;
+                    width: 100%;
+                    transition: opacity 0.2s;
+                }
+                &:hover ~ p {
+                    opacity: 1;
+                    display: inline;
+                    position: absolute;
+                    left: -10px;
+                    right: -10px;
+                    bottom: 10px;
+                    transition: opacity 0.4s;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        ul.character-collection {
+            max-width: 60vw;
+            min-height: 50vh;
+            .person {
+                width: 150px;
+                height: 200px;
+            .hover-person {
+                &:hover ~ img {
+                    top: -30%;
+                    left: -129%;
+                    height: 300px;
+                    width: auto;
+                }
+            }
+            }
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        .character-collection {
+            min-height: 70vh;
+
+            .person {
+            width: 150px;
+            .hover-person {
+                &:hover ~ img {
+                    top: -30%;
+                    left: -129%;
+                    height: 300px;
+                    width: auto;
+                }
+            }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*------------ media_screen ---------------*/
