@@ -727,8 +727,8 @@ body {
                 font-size: 1.2rem;
             }
             a {
-                float: left;
                 animation: pulse-red 2s infinite;
+                margin-right: 30px;
             }
         }
     }
@@ -2178,7 +2178,23 @@ form {
 
 @media (max-width: 600px) {}
 
-@media (max-width: 575px) {}
+@media (max-width: 500px) {
+    .matches_data{
+        tr{
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            td{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .score_team span{
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
 
 @media (max-width: 600px) {}
 
@@ -2187,7 +2203,17 @@ form {
 
 @media (min-width: 768px) {}
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) {
+    .social-icons{
+        display: none;
+    }
+    .masthead::before{
+        width: 100vh;
+    }
+    .stats{
+        font-size: 18px !important;
+    }
+}
 
 
 /* md */
